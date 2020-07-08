@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+      integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Memory Cards</title>
+  </head>
+  <body>
+    <button class="clearCards"><i class="fas fa-trash"></i>Clear Cards</button>
+    <h1 class="title">
+      Memory Cards
+      <button class="addNewBtn"><i class="fas fa-plus"></i>Add New Card</button>
+    </h1>
+    <div class="cards-container">
+      <!-- <div class="card active">
+        <div class="inner-card">
+          <div class="card-front"><p>What is PHP?</p></div>
+          <div class="card-back"><p>A programming language</p></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="inner-card">
+          <div class="card-front"><p>What is PHP?</p></div>
+          <div class="card-back"><p>A programming language</p></div>
+        </div>
+      </div> -->
+    </div>
+    <div class="navigation">
+      <div class="prev"><i class="fas fa-arrow-left"></i></div>
+      <p id="current"></p>
+      <div class="next"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="add-container">
+      <h1 class="title">
+        Add New Card
+        <button class="small"><i class="far fa-window-close"></i></button>
+      </h1>
+      <div class="input">
+        <label for="question">Question</label>
+        <textarea
+          type="text"
+          id="question"
+          placeholder="Enter question..."
+        ></textarea>
+      </div>
+      <div class="input">
+        <label for="answer">Answer</label>
+        <textarea
+          type="text"
+          id="answer"
+          placeholder="Enter answer..."
+        ></textarea>
+      </div>
+      <button class="title" id="addCard">
+        <i class="fas fa-plus"></i>Add Card
+      </button>
+    </div>
+    <script src="java.js"></script>
+  </body>
+</html>

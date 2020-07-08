@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,500,700&display=swap");
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+h1 {
+  position: relative;
+}
+h1 button {
+  position: absolute;
+  size: 12px;
+  padding: 5px 10px;
+  left: 110%;
+  top: 25%;
+}
+button {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 10px 15px;
+  size: 14px;
+}
+.small {
+  size: 12px;
+  padding: 5px 10px;
+  border: transparent;
+  background-color: #f0f0f0;
+}
+.clearCards {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+}
+.cards-container {
+  perspective: 1000px;
+  position: relative;
+  height: 300px;
+  width: 500px;
+}
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  /* 여기다 transition 썼더니 right active left 모두에 적용이 된다 */
+}
+.card.right {
+  transform: translateX(50%) rotateY(-10deg);
+}
+.card.active {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 1;
+  cursor: pointer;
+  transform: translateX(0) rotateY(0deg);
+}
+.card.left {
+  transform: translateX(-50%) rotateY(10deg);
+}
+.card.show-answer .inner-card {
+  transform: rotateX(180deg);
+  /* 이거 틀렸었음. 주의. */
+}
+.card-front {
+  rotate: none;
+  z-index: 3;
+}
+.card-back {
+  transform: rotateX(180deg);
+  /* 이렇게 안 썼더니 오류생김 */
+}
+.inner-card {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+.prev,
+.next {
+  border: none;
+  padding: 2px 5px;
+  font-size: 16px;
+}
+p {
+  font-size: 18px;
+}
+.card-front::after,
+.card-back::after {
+  content: "\f2f1   Flip";
+  font-family: "Font Awesome 5 Free", "Lucida Sans", "Lucida Sans Regular",
+    "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-weight: 600;
+  color: #ddd;
+  font-size: 16px;
+}
+.navigation {
+  display: flex;
+  margin-top: 15px;
+  cursor: pointer;
+}
+#current {
+  margin: 0 40px;
+}
+.add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.5s ease;
+}
+.add-container.show {
+  opacity: 1;
+  z-index: 3;
+}
+button .title {
+  border: #aaa 1px solid;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+textarea {
+  border: #aaa 1px solid;
+  padding: 12px;
+  font-size: 16px;
+  min-width: 500px;
+  max-width: 100%;
+}
+#answer {
+  margin-bottom: 15px;
+}
